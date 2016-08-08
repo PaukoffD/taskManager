@@ -5,7 +5,7 @@
     %meta{:charset => "utf-8"}/
     %meta{:content => "IE=edge", "http-equiv" => "X-UA-Compatible"}/
     %meta{:content => "width=device-width, initial-scale=1", :name => "viewport"}/
-    %title Календарь пользователя
+    %title TaskManager
     = stylesheet_link_tag  'application', media: 'all'
     = csrf_meta_tags
   %body
@@ -17,16 +17,19 @@
             %span.icon-bar
             %span.icon-bar
             %span.icon-bar
-          = link_to 'Газовик', root_path, :class => 'navbar-brand'
+          = link_to 'TaskManager', root_path, :class => 'navbar-brand'
         #navbar.collapse.navbar-collapse
           %ul.nav.navbar-nav
           /
-              <li class="active"><a href="#">Home</a></li>
-              <li><a href="#about">About</a></li>
-              <li><a href="#contact">Contact</a></li>
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
           %ul.nav.navbar-nav.navbar-right
             %li
-              %a{:href => "#"} Привет !
+              - if current_user
+                = link_to 'Выйти', session_path(current_user), method: :delete
+              - else
+                = link_to 'Войти', new_session_path
     / /.nav-collapse
     .container
       = render 'layouts/messages'
