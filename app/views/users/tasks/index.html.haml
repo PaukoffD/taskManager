@@ -1,0 +1,28 @@
+%h1 Мои задачи
+= link_to 'Новая задача', new_user_task_path(current_user), class: 'btn btn-success'
+
+
+%table.table
+  %thead
+    %tr
+      %th #
+      %th Название
+      %th Описание
+      %th Статус
+      %th Создана
+      %th
+  %tbody
+    - @tasks.each do |task|
+      %tr
+        %td= task.id
+        %td= task.name
+        %td= task.description
+        %td= task.state
+        %td= task.created_at.to_s(:db)
+        %td
+          = link_to edit_user_task_path(current_user, task), title: 'Редактировать' do
+            %i.fa.fa-pencil.fa-1g
+          &nbsp;
+          = link_to user_task_path(current_user, task), method: :delete, title: 'Удалить',
+                    data: { confirm: 'Удалить задачу?' } do
+            %i.fa.fa-close.fa-1g

@@ -1,0 +1,10 @@
+ru:
+  activerecord:
+    attributes:
+      task:
+        name: Название
+        description: Описание
+        state: Статус
+        state/new: Новая
+        state/started: Начата
+        state/finished: Окончена
