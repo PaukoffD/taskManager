@@ -1,7 +1,15 @@
-= simple_form_for [current_user, @task] do |f|
-  = f.input :name
+= simple_form_for [current_user, @task], html: { multipart: true } do |f|
+  .row
+    .col-sm-6
+      = f.input :name
+    .col-sm-6
+      = f.input :state, as: :select, collection: Task.aasm.states_for_select, include_blank: false
   = f.input :description
-  = f.input :state, as: :select, collection: Task.aasm.states_for_select, include_blank: false
+  = f.input :file
+  - if @task.file?
+    .form-group.row
+      .col-sm-12
+        = link_or_image(@task)
   .form-actions
     = link_to 'Отмена', :back, class:'btn btn-default'
     =f.button :submit, 'Сохранить', class:'btn btn-success'

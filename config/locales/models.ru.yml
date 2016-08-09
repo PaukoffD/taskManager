@@ -5,6 +5,7 @@ ru:
         name: Название
         description: Описание
         state: Статус
+        file: Файл
         state/new: Новая
         state/started: Начата
         state/finished: Окончена

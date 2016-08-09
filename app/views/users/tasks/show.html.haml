@@ -1,0 +1,34 @@
+.page-header
+  %h1
+    = link_to 'Мои задачи', user_tasks_path(current_user)
+    \/ Задача #
+    = @task.id
+
+.panel.panel-primary
+  .panel-heading
+    %h3.panel-title
+      Задача:
+      = @task.name
+      &nbsp;
+      = link_to edit_user_task_path(current_user, @task), title: 'Редактировать' do
+        %i.fa.fa-pencil
+  .panel-body
+    .row
+      .col-sm-4
+        %h4
+          Создана:
+          = @task.created_at.to_s(:db)
+      .col-sm-4
+        %h4
+          Статус:
+          = @task.state.humanize
+      .col-sm-4
+        - if current_user.admin?
+          %h4
+            Назначена:
+            = @task.user.email
+    %h4 Описание:
+    %blockquote= @task.description
+    %h4 Файл:
+    %blockquote
+      = link_or_image(@task)

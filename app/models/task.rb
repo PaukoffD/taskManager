@@ -6,6 +6,8 @@ class Task < ActiveRecord::Base
     state :started, :finished
   end
 
+  mount_uploader :file, FileUploader
+
   belongs_to :user
 
   default_scope { order(created_at: :asc) }

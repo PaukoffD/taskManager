@@ -1,3 +1,6 @@
-%h1 Новая задача
+.page-header
+  %h1
+    = link_to 'Мои задачи', user_tasks_path(current_user)
+    \/ Новая задача
 
 = render 'form'

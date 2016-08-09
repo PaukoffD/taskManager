@@ -7,6 +7,10 @@ class Users::TasksController < ApplicationController
     @task = Task.new
   end
 
+  def show
+    @task = Task.find(params[:id])
+  end
+
   def edit
     @task = Task.find(params[:id])
   end
@@ -40,6 +44,6 @@ class Users::TasksController < ApplicationController
   private
 
   def task_params
-    params.require(:task).permit(:name, :description, :state, :user_id)
+    params.require(:task).permit(:name, :description, :state, :file, :user_id)
   end
 end
