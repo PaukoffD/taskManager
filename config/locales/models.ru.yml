@@ -6,6 +6,7 @@ ru:
         description: Описание
         state: Статус
         file: Файл
+        user: Ответственный
         state/new: Новая
         state/started: Начата
         state/finished: Окончена
