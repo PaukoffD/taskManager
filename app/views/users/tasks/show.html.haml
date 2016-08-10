@@ -29,6 +29,7 @@
             = @task.user.email
     %h4 Описание:
     %blockquote= @task.description
-    %h4 Файл:
-    %blockquote
-      = link_or_image(@task)
+    - if @task.file?
+      %h4 Файл:
+      %blockquote
+        = link_or_image(@task)
