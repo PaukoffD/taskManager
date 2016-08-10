@@ -1,6 +1,10 @@
 class Users::TasksController < ApplicationController
   def index
-    @tasks = Task.where(user_id: params[:user_id])
+    if current_user.admin?
+      @tasks = Task.all
+    else
+      @tasks = Task.where(user_id: params[:user_id])
+    end
   end
 
   def new

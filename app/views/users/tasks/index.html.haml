@@ -10,6 +10,9 @@
       %th Описание
       %th Статус
       %th Создана
+      - if current_user.admin?
+        %th
+          Назначена
       %th
   %tbody
     - @tasks.each do |task|
@@ -19,6 +22,8 @@
         %td= task.description
         %td= task.state
         %td= task.created_at.to_s(:db)
+        - if current_user.admin?
+          %td= task.user.email
         %td
           = link_to edit_user_task_path(current_user, task), title: 'Редактировать' do
             %i.fa.fa-pencil.fa-1g

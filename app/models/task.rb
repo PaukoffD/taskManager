@@ -10,7 +10,7 @@ class Task < ActiveRecord::Base
 
   belongs_to :user
 
-  default_scope { order(created_at: :asc) }
+  default_scope { order(created_at: :desc) }
 
   validates :user, :name, presence: true
 end
