@@ -7,6 +7,13 @@ class Users::TasksController < ApplicationController
     end
   end
 
+  def state
+    @task = Task.find(params[:id])
+    @task.state = params[:state]
+    @task.save
+    redirect_to user_tasks_path, notice: 'Статус задачи обновлён'
+  end
+
   def new
     @task = Task.new
   end

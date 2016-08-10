@@ -4,7 +4,9 @@ Rails.application.routes.draw do
 
   resources :users do
     scope module: :users do
-      resources :tasks
+      resources :tasks do
+        post 'state', on: :member
+      end
     end
   end
 

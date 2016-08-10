@@ -20,7 +20,13 @@
         %td= task.id
         %td= link_to task.name, user_task_path(current_user, task)
         %td= task.description
-        %td= task.state
+        %td
+          - if current_user.admin?
+            = form_tag state_user_task_path(current_user, task), method: :post do
+              = select_tag :state, options_for_select(Task.aasm.states_for_select, task.state),
+                          class: 'state_list', :onchange => "this.form.submit()"
+          - else
+            = task.state
         %td= task.created_at.to_s(:db)
         - if current_user.admin?
           %td= task.user.email
@@ -33,3 +39,9 @@
             = link_to user_task_path(current_user, task), method: :delete, title: 'Удалить',
                       data: { confirm: 'Удалить задачу?' } do
               %i.fa.fa-close.fa-1g
+  :javascript
+    $(function () {
+      $('.state_list').on('change', function(){
+        $('.state_list').submit()
+      });
+    });
