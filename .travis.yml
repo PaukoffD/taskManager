@@ -2,7 +2,7 @@ language: ruby
 rvm: 2.3.0
 env: RAILS_ENV=test
 script:
-  - bundle exec rspec
+  - CODECLIMATE_REPO_TOKEN=5313b4e28d2382795ae2c3be1923727365f1f50c6835cff7ac15d59805e09be3 bundle exec rspec
 before_script:
   - cp config/database.yml.travis config/database.yml
   - psql -c 'create database travis_ci_test;' -U postgres
