@@ -42,5 +42,7 @@ group :development do
   gem 'spring'
 end
 
+gem 'simplecov', :require => false, :group => :test
+
 gem 'rails_12factor', group: :production
 
