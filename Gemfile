@@ -42,7 +42,13 @@ group :development do
   gem 'spring'
 end
 
-gem 'simplecov', :require => false, :group => :test
+group :test do
+  gem 'simplecov', require: false
+  gem 'rails_best_practices', require: false
+  gem 'rubycritic', require: false
+end
+
+
 
 gem 'rails_12factor', group: :production
 
