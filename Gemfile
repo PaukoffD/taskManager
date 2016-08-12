@@ -34,7 +34,7 @@ end
 
 gem 'faker'
 gem 'factory_girl_rails'
-
+gem 'database_cleaner'
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
@@ -49,7 +49,6 @@ group :test do
   gem 'codeclimate-test-reporter', require: nil
   gem 'rails_best_practices', require: false
   gem 'rubycritic', require: false
-  gem 'database_cleaner'
 end
 
 
