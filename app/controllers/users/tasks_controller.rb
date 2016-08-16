@@ -1,4 +1,6 @@
 class Users::TasksController < ApplicationController
+  before_action :get_task, only: [:state, :show, :edit, :update, :destroy]
+
   def index
     if current_user.admin?
       @tasks = Task.all
@@ -8,7 +10,6 @@ class Users::TasksController < ApplicationController
   end
 
   def state
-    @task = Task.find(params[:id])
     @task.state = params[:state]
     @task.save
     redirect_to user_tasks_path, notice: 'Статус задачи обновлён'
@@ -19,11 +20,9 @@ class Users::TasksController < ApplicationController
   end
 
   def show
-    @task = Task.find(params[:id])
   end
 
   def edit
-    @task = Task.find(params[:id])
   end
 
   def create
@@ -37,7 +36,6 @@ class Users::TasksController < ApplicationController
   end
 
   def update
-    @task = Task.find(params[:id])
     authorize @task
     if @task.update(task_params)
       redirect_to user_tasks_path, notice: 'Задача обновлена.'
@@ -47,7 +45,6 @@ class Users::TasksController < ApplicationController
   end
 
   def destroy
-    @task = Task.find(params[:id])
     authorize @task
     @task.destroy
     redirect_to user_tasks_path, notice: 'Задача удалена.'
@@ -57,5 +54,9 @@ class Users::TasksController < ApplicationController
 
   def task_params
     params.require(:task).permit(:name, :description, :state, :file, :user_id)
+  end
+
+  def get_task
+    @task = Task.find(params[:id])
   end
 end
