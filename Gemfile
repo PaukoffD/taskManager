@@ -30,6 +30,7 @@ group :development, :test do
   gem 'better_errors'
   gem 'rspec-rails', '~> 3.4'
   gem 'shoulda-matchers'
+  gem 'capybara'
 end
 
 gem 'faker'
