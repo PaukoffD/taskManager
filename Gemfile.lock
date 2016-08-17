@@ -164,6 +164,9 @@ GEM
     puma (3.5.0)
     pundit (1.1.0)
       activesupport (>= 3.0.0)
+    pundit-matchers (1.1.0)
+      pundit (~> 1.1, >= 1.1.0)
+      rspec-rails (>= 3.0.0)
     rack (1.6.4)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -312,10 +315,11 @@ DEPENDENCIES
   pg (~> 0.15)
   puma
   pundit
+  pundit-matchers (~> 1.1.0)
   rails (= 4.2.7)
   rails_12factor
   rails_best_practices
-  rspec-rails (~> 3.4)
+  rspec-rails (~> 3.5)
   rubycritic
   sass-rails (~> 5.0)
   shoulda-matchers
