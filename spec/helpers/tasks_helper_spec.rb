@@ -13,7 +13,6 @@ require 'carrierwave/test/matchers'
 #   end
 # end
 RSpec.describe TasksHelper, type: :helper do
-
   describe '#link_or_image' do
     include CarrierWave::Test::Matchers
 
@@ -21,11 +20,16 @@ RSpec.describe TasksHelper, type: :helper do
 
     it 'return link on document' do
       task = create(:task, user: user,
-                    file: Rack::Test::UploadedFile.new(File.join(Rails.root, 'spec', 'factories', 'files', 'test_task.pdf')))
+                           file: Rack::Test::UploadedFile.new(File.join(Rails.root, 'spec', 'factories', 'files', 'test_task.pdf')))
 
-      expect(helper.link_or_image(task)).to  have_xpath('//a')
+      expect(helper.link_or_image(task)).to have_xpath('//a')
     end
 
-  end
+    it 'return image on image' do
+      task = create(:task, user: user,
+                    file: Rack::Test::UploadedFile.new(File.join(Rails.root, 'spec', 'factories', 'files', 'minion.png'), 'image/png'))
 
+      expect(helper.link_or_image(task)).to have_xpath('//img')
+    end
+  end
 end
