@@ -1,7 +1,8 @@
+# Task model
 class Task < ActiveRecord::Base
   include AASM
 
-  aasm :column => 'state' do
+  aasm column: 'state' do
     state :new, initial: true
     state :started, :finished
   end
