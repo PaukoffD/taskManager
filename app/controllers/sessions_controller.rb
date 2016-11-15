@@ -1,3 +1,4 @@
+# Session for our has_secure_password method
 class SessionsController < ApplicationController
   layout 'signin'
 

@@ -1,3 +1,4 @@
+# Just application controller
 class ApplicationController < ActionController::Base
   include Pundit
   # Prevent CSRF attacks by raising an exception.
