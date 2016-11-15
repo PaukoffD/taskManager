@@ -3,7 +3,7 @@
 [![Test Coverage](https://codeclimate.com/github/webchi/taskManager/badges/coverage.svg)](https://codeclimate.com/github/webchi/taskManager/coverage)
 
 # TaskManager
-Test project for hiring.
+Test project for hiring. For project description see TASK.md file.
 
 ## Demo
 Watch demo at [https://tskmanager.herokuapp.com/](https://tskmanager.herokuapp.com/)
