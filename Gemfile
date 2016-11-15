@@ -54,7 +54,4 @@ group :test do
   gem 'rubocop', require: false
 end
 
-
-
 gem 'rails_12factor', group: :production
-

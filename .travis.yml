@@ -1,5 +1,5 @@
 language: ruby
-rvm: 2.3.0
+rvm: 2.3.1
 env: RAILS_ENV=test
 script:
   - CODECLIMATE_REPO_TOKEN=5313b4e28d2382795ae2c3be1923727365f1f50c6835cff7ac15d59805e09be3 bundle exec rspec
