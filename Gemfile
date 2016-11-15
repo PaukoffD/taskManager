@@ -51,6 +51,7 @@ group :test do
   gem 'codeclimate-test-reporter', require: nil
   gem 'rails_best_practices', require: false
   gem 'rubycritic', require: false
+  gem 'rubocop', require: false
 end
 
 

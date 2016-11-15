@@ -144,12 +144,12 @@ RSpec.describe Users::TasksController, type: :controller do
 
     it 'delete a task' do
       task = create(:task, user: user)
-      expect {delete :destroy, {id: task.id, user_id: user.id}}.to change(Task,:count).by(-1)
+      expect { delete :destroy, id: task.id, user_id: user.id }.to change(Task, :count).by(-1)
     end
 
     it 'redirect to users task' do
       task = create(:task, user: user)
-      delete :destroy, {id: task.id, user_id: user.id}
+      delete :destroy, id: task.id, user_id: user.id
       expect(response).to redirect_to user_tasks_path(user)
     end
   end
