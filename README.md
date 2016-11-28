@@ -13,4 +13,5 @@ Admin user: admin@tskmanager.com, password: '12345678'. Or any simple visible us
 1. git clone git@github.com:webchi/taskManager.git
 2. cd taskManager && bundle install
 3. rake db:migrate && rake db:populate
+4. Setup [ROLLBAR_ACCESS_TOKEN env variable](https://rollbar.com/docs/notifier/rollbar-gem/#rails).
 5. rails s
